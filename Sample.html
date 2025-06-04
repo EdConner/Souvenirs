@@ -1,0 +1,76 @@
+<script>
+const products = [
+    {
+        id: 1,
+        name: "عروسک ماتروشکا",
+        englishName: "Matryoshka Doll",
+        image: "images/matryoshka-doll.jpg",
+        country: "روسیه",
+        origin: "سرگیف پوساد",
+        ...
+    },
+    {
+        id: 2,
+        name: "فرش ایرانی",
+        englishName: "Persian Carpet",
+        image: "images/persian-carpet.jpg",
+        country: "ایران",
+        origin: "کاشان، اصفهان، تبریز",
+        ...
+    },
+    {
+        id: 3,
+        name: "ماسک ونیزی",
+        englishName: "Venetian Mask",
+        image: "images/venetian-mask.jpg",
+        country: "ایتالیا",
+        origin: "ونیز",
+        ...
+    },
+    {
+        id: 4,
+        name: "کیمونو",
+        englishName: "Kimono",
+        image: "images/kimono.jpg",
+        country: "ژاپن",
+        origin: "کیوتو",
+        ...
+    },
+    {
+        id: 5,
+        name: "مجسمه ابوالهول",
+        englishName: "Sphinx Figurine",
+        image: "images/sphinx-figurine.jpg",
+        country: "مصر",
+        origin: "جیزه، قاهره",
+        ...
+    },
+    // ... ادامه برای همه محصولات تا id: 64 با image: "images/[english-name].jpg"
+];
+</script>
+
+<!-- نمونه HTML برای کارت محصول -->
+<div class="product-card">
+    <img src="images/matryoshka-doll.jpg" alt="Matryoshka Doll" class="rounded-lg w-full h-48 object-cover mb-2">
+    <h3 class="font-bold text-lg">عروسک ماتروشکا</h3>
+    <p class="text-sm text-gray-500">روسیه</p>
+</div>
+
+<!-- نمایش تصویر در modal نیز اضافه شود -->
+<div id="modal-body" class="p-6">
+    <img id="modal-image" src="" alt="" class="w-full rounded mb-4 hidden">
+    <p id="modal-description"></p>
+</div>
+
+<script>
+// در هنگام باز شدن مودال، تصویر را تنظیم کن
+function openProductModal(product) {
+    document.getElementById("modal-title").textContent = product.name;
+    document.getElementById("modal-description").textContent = product.description;
+    const img = document.getElementById("modal-image");
+    img.src = product.image;
+    img.alt = product.englishName;
+    img.classList.remove("hidden");
+    document.getElementById("product-modal").classList.remove("hidden", "opacity-0");
+}
+</script>
