@@ -67,6 +67,7 @@
             <button data-target="explorer" class="nav-item active-nav py-4 px-2 sm:px-4">کاوشگر سوغاتی‌ها</button>
             <button data-target="analysis" class="nav-item py-4 px-2 sm:px-4">تحلیل هزینه‌ها</button>
             <button data-target="stores" class="nav-item py-4 px-2 sm:px-4">برترین فروشگاه‌ها</button>
+            <button data-target="countries" class="nav-item py-4 px-2 sm:px-4">کشورها</button>
             <button data-target="ranking" class="nav-item py-4 px-2 sm:px-4">رتبه‌بندی فرهنگی</button>
         </div>
     </nav>
@@ -126,6 +127,16 @@
             </div>
         </section>
 
+        <section id="countries" class="content-section hidden">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-2xl font-semibold text-[#34658F] mb-4 text-center">بررسی کشورها</h2>
+                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">این بخش به بررسی جزئیات مربوط به گردشگری و بازار سوغات در کشورهای مختلف می‌پردازد. می‌توانید اطلاعات مربوط به تعداد گردشگران، سبد خرید متوسط و محصولات محبوب هر کشور را مشاهده کنید.</p>
+                <div id="country-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Country cards will be rendered here -->
+                </div>
+            </div>
+        </section>
+
         <section id="ranking" class="content-section hidden">
             <div class="bg-white p-6 rounded-lg shadow overflow-x-auto">
                  <h2 class="text-2xl font-semibold text-[#34658F] mb-4 text-center">رتبه‌بندی فرهنگی و اقتصادی محصولات</h2>
@@ -174,7 +185,6 @@
                 audience: "بزرگسالان",
                 materials: "چوب درخت لیندن، رنگ گواش",
                 usage: "تزئین منزل، هدیه فرهنگی، کلکسیون",
-                image: "Image/osint.jpg",
                 culturalValue: 8,
                 economicValue: 7
             },
@@ -193,7 +203,12 @@
                 materials: "پشم، ابریشم، رنگ‌های گیاهی",
                 usage: "تزئین منزل، سرمایه‌گذاری",
                 culturalValue: 10,
-                economicValue: 9
+                economicValue: 9,
+                specialNotes: {
+                    production: "تولید فرش دستباف نیازمند مهارت بالا و زمان طولانی است. چالش‌ها شامل تأمین مواد اولیه با کیفیت و حفظ دانش سنتی در برابر تولید صنعتی است.",
+                    sales: "مشکلات فروش شامل رقابت با فرش‌های ماشینی، نوسانات بازار ارز و دشواری در صادرات به دلیل تحریم‌ها.",
+                    development: "فرصت‌ها شامل توسعه بازارهای آنلاین، طراحی‌های مدرن‌تر برای جذب نسل جوان و تمرکز بر پایداری و اصالت."
+                }
             },
             {
                 id: 3,
@@ -227,7 +242,12 @@
                 materials: "ابریشم، پنبه",
                 usage: "لباس رسمی، لباس راحتی در خانه، دکور",
                 culturalValue: 9,
-                economicValue: 8
+                economicValue: 8,
+                specialNotes: {
+                    production: "تولید کیمونوهای سنتی بسیار پیچیده و زمان‌بر است. چالش اصلی، کمبود صنعتگران ماهر و رقابت با لباس‌های مدرن است.",
+                    sales: "بازار فروش کیمونوهای سنتی محدود به رویدادهای خاص و گردشگران است. قیمت بالا نیز یک چالش است.",
+                    development: "فرصت‌ها شامل طراحی کیمونوهای مدرن‌تر و قابل استفاده در زندگی روزمره، و بازاریابی جهانی از طریق پلتفرم‌های آنلاین."
+                }
             },
              {
                 id: 5,
@@ -361,7 +381,7 @@
                 category: "دکوری",
                 audience: "جوانان",
                 materials: "رزین، سنگ",
-                usage: "دکور میز، یادگاری سفر",
+                usage: "دکور میز، یادگاری سفر، هدیه",
                 culturalValue: 7,
                 economicValue: 5
             },
@@ -414,7 +434,12 @@
                 materials: "خاک کائولین، کبالت",
                 usage: "تزئین منزل، ظروف غذاخوری، کلکسیون",
                 culturalValue: 9,
-                economicValue: 8
+                economicValue: 8,
+                specialNotes: {
+                    production: "تولید چینی با کیفیت بالا نیازمند خاک رس خاص و فرآیندهای پیچیده است. چالش‌ها شامل حفظ تکنیک‌های سنتی و رقابت با تولیدات انبوه.",
+                    sales: "مشکلات فروش شامل قیمت بالا و نیاز به بسته‌بندی ایمن برای حمل و نقل.",
+                    development: "فرصت‌ها شامل بازاریابی به عنوان کالای لوکس، همکاری با طراحان مدرن و گسترش به بازارهای بین‌المللی."
+                }
             },
             {
                 id: 16,
@@ -1893,6 +1918,221 @@
             { name: "China National Arts & Crafts", country: "چین", website: "#" }
         ];
 
+        // New data for countries section
+        const countriesInfo = [
+            {
+                name: "فرانسه",
+                tourists: "89 میلیون نفر",
+                avgSpending: "120 دلار",
+                popularProducts: ["ماکت برج ایفل", "کلاه برت", "عطر"],
+                notes: "پاریس به عنوان پایتخت مد و هنر، مقصدی محبوب برای خرید سوغات لوکس است."
+            },
+            {
+                name: "اسپانیا",
+                tourists: "83 میلیون نفر",
+                avgSpending: "95 دلار",
+                popularProducts: ["فن دستی", "صنایع چرمی", "فلامنکو دال"],
+                notes: "تنوع فرهنگی و منطقه‌ای اسپانیا، سوغات متنوعی را از هر منطقه ارائه می‌دهد."
+            },
+            {
+                name: "آمریکا",
+                tourists: "79 میلیون نفر",
+                avgSpending: "150 دلار",
+                popularProducts: ["کلاه کابوی", "مجسمه آزادی", "تی‌شرت‌های محلی"],
+                notes: "بازار سوغات آمریکا بسیار گسترده و شامل اقلام متنوعی از نمادهای ملی تا محصولات محلی است."
+            },
+            {
+                name: "چین",
+                tourists: "65 میلیون نفر",
+                avgSpending: "110 دلار",
+                popularProducts: ["ظروف چینی آبی و سفید", "مجسمه اژدها", "پارچه‌های ابریشمی"],
+                notes: "چین با تاریخ غنی و صنایع دستی متنوع، مقصد اصلی برای سوغات فرهنگی است."
+            },
+            {
+                name: "ایتالیا",
+                tourists: "64 میلیون نفر",
+                avgSpending: "135 دلار",
+                popularProducts: ["ماسک ونیزی", "اشیاء شیشه‌ای مورانو", "سفال مایولیکا"],
+                notes: "ایتالیا به دلیل هنر، مد و تاریخ غنی، سوغاتی‌های هنری و لوکس فراوانی دارد."
+            },
+            {
+                name: "ترکیه",
+                tourists: "51 میلیون نفر",
+                avgSpending: "85 دلار",
+                popularProducts: ["ظروف مسی", "کلاه فز", "قالیچه ترکی"],
+                notes: "بازارهای سنتی ترکیه مانند گرند بازار، مقاصد اصلی خرید سوغات هستند."
+            },
+            {
+                name: "مکزیک",
+                tourists: "45 میلیون نفر",
+                avgSpending: "70 دلار",
+                popularProducts: ["کلاه سومبررو", "سفال مکزیکی", "نقره تاکسکو"],
+                notes: "صنایع دستی مکزیک با رنگ‌های شاد و طرح‌های بومی، بسیار محبوب هستند."
+            },
+            {
+                name: "تایلند",
+                tourists: "39 میلیون نفر",
+                avgSpending: "75 دلار",
+                popularProducts: ["مجسمه بودا", "ابریشم تایلندی", "نقره"],
+                notes: "تایلند با فرهنگ بودایی و صنایع دستی ظریف، سوغاتی‌های معنوی و هنری ارائه می‌دهد."
+            },
+            {
+                name: "آلمان",
+                tourists: "39 میلیون نفر",
+                avgSpending: "90 دلار",
+                popularProducts: ["ساعت کوکو", "چوب‌تراشی", "ماگ آبجو"],
+                notes: "آلمان به دلیل دقت و کیفیت در تولید، سوغاتی‌های با دوام و کاربردی دارد."
+            },
+            {
+                name: "بریتانیا",
+                tourists: "38 میلیون نفر",
+                avgSpending: "100 دلار",
+                popularProducts: ["ماکت اتوبوس لندن", "کلاه سلطنتی", "چای‌خوری"],
+                notes: "بریتانیا با تاریخ سلطنتی و نمادهای شهری، سوغاتی‌های کلاسیک و محبوب دارد."
+            },
+            {
+                name: "ژاپن",
+                tourists: "31 میلیون نفر",
+                avgSpending: "140 دلار",
+                popularProducts: ["کیمونو", "عروسک کوکشی", "ظروف سرامیکی"],
+                notes: "ژاپن با فرهنگ غنی و هنر ظریف، سوغاتی‌های با کیفیت و زیبا ارائه می‌دهد."
+            },
+            {
+                name: "اتریش",
+                tourists: "30 میلیون نفر",
+                avgSpending: "105 دلار",
+                popularProducts: ["کریستال سواروفسکی", "شکلات موتسارت", "لباس‌های سنتی"],
+                notes: "اتریش با میراث موسیقی و هنر، سوغاتی‌های لوکس و فرهنگی دارد."
+            },
+            {
+                name: "یونان",
+                tourists: "30 میلیون نفر",
+                avgSpending: "80 دلار",
+                popularProducts: ["سفال یونانی", "مجسمه خدایان", "روغن زیتون"],
+                notes: "یونان با تاریخ باستان و جزایر زیبا، سوغاتی‌های تاریخی و طبیعی دارد."
+            },
+            {
+                name: "پرتغال",
+                tourists: "27 میلیون نفر",
+                avgSpending: "70 دلار",
+                popularProducts: ["خروس بارسلوس", "کاشی‌های آزولژو", "محصولات چوب پنبه"],
+                notes: "پرتغال با فرهنگ دریانوردی و هنرهای سنتی، سوغاتی‌های منحصر به فردی دارد."
+            },
+            {
+                name: "روسیه",
+                tourists: "24 میلیون نفر",
+                avgSpending: "90 دلار",
+                popularProducts: ["عروسک ماتروشکا", "ظروف گژل", "جعبه‌های لاکی"],
+                notes: "روسیه با فرهنگ غنی و صنایع دستی سنتی، سوغاتی‌های هنری و تاریخی دارد."
+            },
+            {
+                name: "کانادا",
+                tourists: "22 میلیون نفر",
+                avgSpending: "110 دلار",
+                popularProducts: ["شربت افرا", "اسباب‌بازی‌های چوبی", "لباس‌های پشمی"],
+                notes: "کانادا با طبیعت بکر و فرهنگ چندگانه، سوغاتی‌های طبیعی و محلی دارد."
+            },
+            {
+                name: "هلند",
+                tourists: "20 میلیون نفر",
+                avgSpending: "80 دلار",
+                popularProducts: ["کفش چوبی", "سفال دلفت", "پنیر"],
+                notes: "هلند با نمادهای خاص خود، سوغاتی‌های سنتی و کاربردی دارد."
+            },
+            {
+                name: "مراکش",
+                tourists: "13 میلیون نفر",
+                avgSpending: "65 دلار",
+                popularProducts: ["فانوس مراکشی", "سفال تاگین", "چرم"],
+                notes: "بازارهای مراکش با صنایع دستی رنگارنگ و متنوع، مقصدی جذاب برای خرید هستند."
+            },
+            {
+                name: "امارات متحده عربی",
+                tourists: "16 میلیون نفر",
+                avgSpending: "200 دلار",
+                popularProducts: ["ادویه‌جات", "طلا و جواهر", "ماکت برج خلیفه"],
+                notes: "امارات با رویکرد لوکس و مدرن، سوغاتی‌های گران‌قیمت و مدرن دارد."
+            },
+            {
+                name: "استرالیا",
+                tourists: "9 میلیون نفر",
+                avgSpending: "120 دلار",
+                popularProducts: ["بومرنگ", "دیدجریدو", "محصولات کانگورو"],
+                notes: "استرالیا با حیات وحش منحصر به فرد و فرهنگ بومی، سوغاتی‌های خاص و طبیعی دارد."
+            },
+             {
+                name: "هند",
+                tourists: "18 میلیون نفر",
+                avgSpending: "60 دلار",
+                popularProducts: ["ابریشم", "جواهرات", "صنایع دستی چوبی"],
+                notes: "هند با تنوع فرهنگی و صنایع دستی غنی، سوغاتی‌های رنگارنگ و معنوی دارد."
+            },
+            {
+                name: "کره جنوبی",
+                tourists: "17 میلیون نفر",
+                avgSpending: "90 دلار",
+                popularProducts: ["هانبوک مینیاتوری", "محصولات زیبایی", "ظروف سرامیکی"],
+                notes: "کره جنوبی با فرهنگ پاپ و فناوری پیشرفته، سوغاتی‌های مدرن و سنتی دارد."
+            },
+            {
+                name: "ویتنام",
+                tourists: "18 میلیون نفر",
+                avgSpending: "55 دلار",
+                popularProducts: ["کلاه مخروطی (نون لا)", "ابریشم", "قهوه"],
+                notes: "ویتنام با طبیعت زیبا و صنایع دستی سنتی، سوغاتی‌های ارزان و فرهنگی دارد."
+            },
+            {
+                name: "مصر",
+                tourists: "13 میلیون نفر",
+                avgSpending: "70 دلار",
+                popularProducts: ["مجسمه ابوالهول", "اهرام مینیاتوری", "پاپیروس"],
+                notes: "مصر با تاریخ باستان و نمادهای فراعنه، سوغاتی‌های تاریخی و رمزآلود دارد."
+            },
+            {
+                name: "اندونزی",
+                tourists: "16 میلیون نفر",
+                avgSpending: "65 دلار",
+                popularProducts: ["پارچه سارافان", "صنایع دستی چوبی بالی", "قهوه"],
+                notes: "اندونزی به ویژه بالی، با صنایع دستی زیبا و فرهنگ غنی، مقصدی جذاب برای خرید است."
+            },
+            {
+                name: "آرژانتین",
+                tourists: "7 میلیون نفر",
+                avgSpending: "80 دلار",
+                popularProducts: ["کلاه گائوسو", "چرم", "ابزار ماته"],
+                notes: "آرژانتین با فرهنگ تانگو و گائوسو، سوغاتی‌های منحصر به فردی دارد."
+            },
+            {
+                name: "برزیل",
+                tourists: "6 میلیون نفر",
+                avgSpending: "75 دلار",
+                popularProducts: ["دستبندهای کائوچو", "سنگ‌های قیمتی", "لباس‌های کارناوالی"],
+                notes: "برزیل با فرهنگ شاد و پر جنب و جوش، سوغاتی‌های رنگارنگ و پر انرژی دارد."
+            },
+            {
+                name: "آفریقای جنوبی",
+                tourists: "10 میلیون نفر",
+                avgSpending: "90 دلار",
+                popularProducts: ["صنایع دستی ماسایی", "مهره‌کاری", "مجسمه‌های حیات وحش"],
+                notes: "آفریقای جنوبی با تنوع فرهنگی و حیات وحش غنی، سوغاتی‌های بومی و طبیعی دارد."
+            },
+            {
+                name: "سوئیس",
+                tourists: "12 میلیون نفر",
+                avgSpending: "150 دلار",
+                popularProducts: ["چاقوی سوئیسی", "ساعت", "شکلات"],
+                notes: "سوئیس با دقت و کیفیت بالا، سوغاتی‌های لوکس و بادوام ارائه می‌دهد."
+            },
+            {
+                name: "لهستان",
+                tourists: "18 میلیون نفر",
+                avgSpending: "70 دلار",
+                popularProducts: ["جواهرات کهربا", "سرامیک بولسلاویک", "صنایع دستی چوبی"],
+                notes: "لهستان با تاریخ غنی و هنرهای سنتی، سوغاتی‌های زیبا و با ارزش دارد."
+            }
+        ];
+
+
         document.addEventListener('DOMContentLoaded', () => {
             const countryFilter = document.getElementById('country-filter');
             const categoryFilter = document.getElementById('category-filter');
@@ -1903,6 +2143,7 @@
             const modal = document.getElementById('product-modal');
             const modalContent = document.getElementById('modal-content');
             const closeModalBtn = document.getElementById('close-modal');
+            const countryGrid = document.getElementById('country-grid'); // New element for countries section
 
             let allCountries = ['همه کشورها'];
             let allCategories = ['همه دسته‌ها'];
@@ -1933,10 +2174,8 @@
                     const card = document.createElement('div');
                     card.className = "bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer";
                     card.dataset.id = product.id;
-                    // Using placehold.co with more descriptive text and a random color for visual distinction
-                    const imageUrl = `https://placehold.co/300x200/${Math.floor(Math.random()*16777215).toString(16)}/FFFFFF?text=${encodeURIComponent(product.name.replace(/\s/g, '+'))}+%28${encodeURIComponent(product.country.replace(/\s/g, '+'))}%29`;
+                    // Removed image from card
                     card.innerHTML = `
-                        <img src="${imageUrl}" alt="${product.name}" class="w-full h-40 object-cover">
                         <div class="p-5">
                             <h3 class="text-lg font-bold text-[#34658F] truncate">${product.name}</h3>
                             <p class="text-sm text-gray-500 mb-2">${product.country}</p>
@@ -1985,12 +2224,21 @@
             function showModal(product) {
                 document.getElementById('modal-title').textContent = `${product.name} (${product.englishName})`;
                 const modalBody = document.getElementById('modal-body');
-                // Using placehold.co with more descriptive text and a random color for visual distinction in modal
-                const imageUrl = `https://placehold.co/400x300/${Math.floor(Math.random()*16777215).toString(16)}/FFFFFF?text=${encodeURIComponent(product.name.replace(/\s/g, '+'))}+%28${encodeURIComponent(product.country.replace(/\s/g, '+'))}%29`;
+                let specialNotesHtml = '';
+                if (product.specialNotes) {
+                    specialNotesHtml = `
+                        <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">نکات ویژه:</h4>
+                            ${product.specialNotes.production ? `<p><strong>تولید:</strong> ${product.specialNotes.production}</p>` : ''}
+                            ${product.specialNotes.sales ? `<p><strong>خرید و فروش:</strong> ${product.specialNotes.sales}</p>` : ''}
+                            ${product.specialNotes.development ? `<p><strong>فرصت‌های توسعه:</strong> ${product.specialNotes.development}</p>` : ''}
+                        </div>
+                    `;
+                }
+
                 modalBody.innerHTML = `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
                         <div>
-                            <img src="${imageUrl}" alt="${product.name}" class="w-full h-auto rounded-lg mb-4">
                             <h4 class="font-bold text-lg mb-2 text-[#4F80B9]">داستان محصول</h4>
                             <p class="text-gray-700 leading-relaxed">${product.story}</p>
                              <h4 class="font-bold text-lg mt-4 mb-2 text-[#4F80B9]">توضیحات</h4>
@@ -2009,6 +2257,7 @@
                             </ul>
                         </div>
                     </div>
+                    ${specialNotesHtml}
                 `;
                 modal.classList.remove('hidden');
                 setTimeout(() => {
@@ -2141,6 +2390,24 @@
             });
             renderStores(storesData);
             
+            // New function to render countries
+            function renderCountries() {
+                countryGrid.innerHTML = '';
+                countriesInfo.forEach(country => {
+                    const countryCard = document.createElement('div');
+                    countryCard.className = "bg-white rounded-lg shadow-lg p-6";
+                    countryCard.innerHTML = `
+                        <h3 class="text-xl font-bold text-[#34658F] mb-3">${country.name}</h3>
+                        <p class="text-gray-700 mb-2"><strong>تعداد گردشگر:</strong> ${country.tourists}</p>
+                        <p class="text-gray-700 mb-2"><strong>متوسط سبد خرید:</strong> ${country.avgSpending}</p>
+                        <p class="text-gray-700 mb-2"><strong>محصولات محبوب:</strong> ${country.popularProducts.join(', ')}</p>
+                        <p class="text-gray-600 text-sm mt-3">${country.notes}</p>
+                    `;
+                    countryGrid.appendChild(countryCard);
+                });
+            }
+            renderCountries(); // Call this function on load
+
             const rankingTableBody = document.getElementById('ranking-body');
             const rankingTableHeaders = document.querySelectorAll('#ranking-table th[data-sort]');
             let sortState = { key: 'rank', asc: true };
